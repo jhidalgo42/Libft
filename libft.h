@@ -6,7 +6,7 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:13:49 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/06 20:21:34 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/06 20:23:55 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,16 @@
 	tolower
 	calloc
 	strdup
-
+	ft_substr
+	ft_strjoin
+	ft_strtrim
+	ft_split
+	ft_itoa
+	ft_strmapi
+	ft_putchar_fd
+	ft_putstr_fd
+	ft_putendl_fd
+	ft_putnbr_fd
 */
 
 
