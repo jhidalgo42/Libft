@@ -6,21 +6,25 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:13:49 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/06 18:36:31 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/06 20:16:23 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stddef.h>
+
 
 #ifndef LIBFT_H
 #define LIBFT_H
 
-	memset
-	bzero
-	memcpy
-	memccpy
-	memmove
+	void	*ft_memset(void *s, int c, size_t n);
+	void ft_bzero(void *s, size_t n);
+	void    *ft_memcpy(void *dest, const void *src, size_t n);
+	void	*ft_memccpy(void *dest, const void *src, int c, size_t n);
+	void	*ft_memmove(void *dest, const void *src, size_t n);
+	int		ft_strlen(char *str);
+	/*
 	memchr
 	memcmp
-	strlen
 	strlcpy
 	strlcat
 	strchr
@@ -38,7 +42,7 @@
 	calloc
 	strdup
 
-
+*/
 
 
 #endif

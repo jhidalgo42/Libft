@@ -6,11 +6,11 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:06:16 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/06 18:06:32 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/06 20:04:00 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char			*ft_strstr(char *str, char *to_find) //// FALTA LA ADAPTACIÓN A STRNSTR
+char			*ft_strnstr(char *str, char *to_find) //// FALTA LA ADAPTACIÓN A STRNSTR
 {
 	int	i;
 	int	j;

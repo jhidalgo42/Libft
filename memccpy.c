@@ -6,11 +6,14 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:07:13 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/06 18:07:14 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/06 20:09:45 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*memccpy(void *dest, const void *src, int c, size_t n)
+#include <stddef.h>
+#include "libft.h" 
+
+void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
 	char *dst;
 	const char *sr;
@@ -20,14 +23,16 @@ void	*memccpy(void *dest, const void *src, int c, size_t n)
 	while ((*sr && n-- > 0) && *sr != c)
 	{
 		*dst++ = *sr++;
-		if (*(sr + 1) = '\0' || n == 1)
+		if (*(sr + 1) == '\0' || n == 1)
 		{
 			return (0);
 		} 
 	}
-	if (*sr = c)
+	if (*sr == c)
 	{
 		return (dst + 1);
 	}
+	else
+		return (0);
 }
 
