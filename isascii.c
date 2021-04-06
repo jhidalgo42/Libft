@@ -6,13 +6,13 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:07:06 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/06 18:34:52 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/06 19:03:41 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int ft_isascii(int c)
 {
-	if (c < '\0' || c > 127)
+	if (c < 0 || c > 127)
 		return (0);
 	else
 		return (c);

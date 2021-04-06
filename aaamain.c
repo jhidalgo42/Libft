@@ -1,6 +1,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stddef.h>
+#include <ctype.h> //Para las funciones is;
 
 int		main(void)
 {

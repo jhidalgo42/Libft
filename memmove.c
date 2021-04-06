@@ -6,9 +6,11 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:07:36 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/06 18:07:38 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/06 18:12:45 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stddef.h>
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
