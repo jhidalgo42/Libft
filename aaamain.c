@@ -17,7 +17,28 @@ int		main(void)
 	s1 = memset(s1 ,c ,n);
 	s2 = memset(s2, c, n);
 
+	printf("\nMEMSET:\n");
 	printf("%s\n", s1);
 	printf("%s\n", s2);
-	return (0);
+
+	s1 = bzero(s1 ,c ,n);
+	s2 = ft_bzero(s2, c, n);
+	printf("\nBZERO:\n");
+	printf("%s\n", s1);
+	printf("%s\n", s2);
+	
+
+	printf("\nMEMCPY:\n");
+	printf("%s\n", s1);
+	printf("%s\n", s2);
+
+	printf("\nMEMCPY:\n");
+	printf("%s\n", s1);
+	printf("%s\n", s2);
+
+	printf("\nMEMMOVE:\n");
+	printf("%s\n", s1);
+	printf("%s\n", s2);
+
+	return (0);	
 }
