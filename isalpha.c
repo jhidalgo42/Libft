@@ -6,7 +6,15 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:07:03 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/06 18:07:04 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/06 18:30:45 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+int ft_isalpha(int c)
+{
+	if (((c < 'a') || (c > 'z')) &&
+	((c < 'A') || (c > 'Z')))
+		return (0);
+	else
+		return (c);
+}
