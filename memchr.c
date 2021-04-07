@@ -10,3 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stddef.h>
+#include "libft.h" 
+
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	const char *str;
+
+	str = s;
+
+	while (*str && n-- > 0)
+	{
+		if (*str == (const char)c)
+			return (str);
+		str++;
+	}
+	return (0);
+}

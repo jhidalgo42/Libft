@@ -10,13 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
-{
-	unsigned int	i;
-	unsigned int	j;
-	unsigned int	dlen;
+#include <stddef.h>
 
-	i = ft_strlen(dest);
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
+{
+	size_t	i;
+	size_t	j;
+	size_t	dlen;
+
+	i = ft_strlen(dst);
 	dlen = ft_strlen(src);
 	j = 0;
 	if (size == 0)
@@ -29,12 +31,12 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 	}
 	else
 		dlen = dlen + i;
-	while (src[j] != '\0' && i + 1 < size && dest != src)
+	while (src[j] != '\0' && i + 1 < size && dst != src)
 	{
-		dest[i] = src[j];
+		dst[i] = src[j];
 		i++;
 		j++;
 	}
-	dest[i] = '\0';
+	dst[i] = '\0';
 	return (dlen);
 }

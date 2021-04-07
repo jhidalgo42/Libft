@@ -10,22 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char			*ft_strnstr(char *str, char *to_find) //// FALTA LA ADAPTACIÓN A STRNSTR
+#include <stddef.h>
+
+char	*ft_strnstr(const char	*big, const char *little, size_t len)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	if (to_find[0] == '\0')
-		return (str);
-	while (str[i] != '\0')
+	if (little[0] == '\0')
+		return (big);
+	while (big[i] != '\0' && len-- > 0)
 	{
 		j = 0;
-		while (str[i + j] != '\0' && str[i + j] == to_find[j])
+		while (big[i + j] != '\0' && big[i + j] == little[j])
 		{
-			if (to_find[j + 1] == '\0')
+			if (little[j + 1] == '\0')
 			{
-				return (&str[i]);
+				return (&big[i]);
 			}
 			j++;
 		}

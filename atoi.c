@@ -12,7 +12,7 @@
 
 #include "libft.h" 
 
-int	ft_atoi(char *str)
+int		ft_atoi(const char *nptr) //Pendiente de revisión de los negativos y dígitos restantes. Lo tengo en el examen o en el Rush02
 {
 	int numero;
 	int negativo;
@@ -21,19 +21,19 @@ int	ft_atoi(char *str)
 	numero = 0;
 	negativo = 1;
 	i = 0;
-	while ((str[i] == ' ') || (str[i] >= 9 && str[i] <= 13))
+	while ((nptr[i] == ' ') || (nptr[i] >= 9 && nptr[i] <= 13))
 		i++;
-	while (str[i] == '-' || str[i] == '+')
+	while (nptr[i] == '-' || nptr[i] == '+')
 	{
-		if (str[i] == '-')
+		if (nptr[i] == '-')
 		{
 			negativo = -negativo;
 		}
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		numero = numero * 10 + str[i] - 48;
+		numero = numero * 10 + nptr[i] - 48;
 		i++;
 	}
 	return (numero * negativo);
