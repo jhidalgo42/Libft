@@ -1,16 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   strrchr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/06 18:10:12 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/07 18:03:04 by jhidalgo         ###   ########.fr       */
+/*   Created: 2021/04/06 18:09:46 by jhidalgo          #+#    #+#             */
+/*   Updated: 2021/04/07 17:45:36 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *strchr(const char *s, int c)
+char	ft_strrchr(const char *s, int c)
 {
-	return (s);
+	char	n;
+
+	n = *s;
+	n = (char)c;
+	return (n);
 }

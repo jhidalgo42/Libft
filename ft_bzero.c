@@ -1,16 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   bzero.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/06 18:10:12 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/07 18:03:04 by jhidalgo         ###   ########.fr       */
+/*   Created: 2021/04/06 18:00:48 by jhidalgo          #+#    #+#             */
+/*   Updated: 2021/04/07 15:59:58 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *strchr(const char *s, int c)
+#include "libft.h" 
+#include <stddef.h>
+
+void	ft_bzero(void *s, size_t n)
 {
-	return (s);
+	unsigned char	*ptr;
+
+	ptr = s;
+	while (n-- > 0)
+	{
+		*ptr++ = '\0';
+	}
 }

@@ -1,16 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/06 18:10:12 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/07 18:03:04 by jhidalgo         ###   ########.fr       */
+/*   Created: 2021/04/06 18:05:07 by jhidalgo          #+#    #+#             */
+/*   Updated: 2021/04/07 18:04:41 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *strchr(const char *s, int c)
+#include <stddef.h>
+
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	return (s);
+	size_t	i;
+	size_t	j;
+	size_t	dlen;
+
+	i = ft_strlen(dst);
+	dlen = ft_strlen(src);
+	j = 0;
+	if (size == 0)
+	{
+		return (dlen);
+	}
+	if (size < i)
+	{
+		dlen = dlen + size;
+	}
+	else
+		dlen = dlen + i;
+	while (src[j] != '\0' && i + 1 < size && dst != src)
+	{
+		dst[i] = src[j];
+		i++;
+		j++;
+	}
+	dst[i] = '\0';
+	return (dlen);
 }

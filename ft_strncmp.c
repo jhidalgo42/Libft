@@ -1,16 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/06 18:10:12 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/07 18:03:04 by jhidalgo         ###   ########.fr       */
+/*   Created: 2021/04/06 18:05:55 by jhidalgo          #+#    #+#             */
+/*   Updated: 2021/04/07 18:05:01 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *strchr(const char *s, int c)
+#include "libft.h" 
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	return (s);
+	size_t	i;
+	int		j;
+
+	i = 1;
+	j = 0;
+	if (n == 0)
+	{
+		return (0);
+	}
+	while (s1[j] == s2[j] && i < n && s1[j] != '\0' && s2[j] != '\0')
+	{
+		i++;
+		j++;
+	}
+	return ((int)s1[j] - s2[j]);
 }

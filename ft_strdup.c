@@ -1,16 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/06 18:10:12 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/07 18:03:04 by jhidalgo         ###   ########.fr       */
+/*   Created: 2021/04/06 18:08:02 by jhidalgo          #+#    #+#             */
+/*   Updated: 2021/04/07 18:05:28 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *strchr(const char *s, int c)
+char	*ft_strdup(const char *s)
 {
-	return (s);
+	char	*str;
+	int		i;
+
+	i = 0;
+	str = (char *) malloc(ft_strlen(s) * sizeof(const char *));
+	while (s[i] != 0)
+	{
+		str[i] = s[i];
+		i++;
+	}
+	return (str);
 }
