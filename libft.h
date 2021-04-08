@@ -6,15 +6,22 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:13:49 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/07 16:32:09 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/08 16:19:23 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+<<<<<<< HEAD
 # include <stddef.h>
 # include <stdlib.h>
+=======
+	#include <stddef.h>
+	#include <stdlib.h>
+	#include <unistd.h>
+	#include <fcntl.h>
+>>>>>>> e5fdca290f67b8fea519a3f4190b61afc2c61a94
 
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);

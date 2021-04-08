@@ -10,7 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+<<<<<<< HEAD
 char *strchr(const char *s, int c)
 {
 	return (s);
 }
+=======
+#include "libft.h" 
+
+char *ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char *str;
+	str = (char *) malloc(len * sizeof(char *));
+	while (len-- - start > 0)
+	{
+		*(str++ + start) = *s;
+	}
+	return (str);
+}
+>>>>>>> e5fdca290f67b8fea519a3f4190b61afc2c61a94
