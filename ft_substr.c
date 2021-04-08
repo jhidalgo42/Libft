@@ -10,4 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char *strchr(const char *s, int c);
+#include "libft.h" 
+
+char *ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char *str;
+	str = (char *) malloc(len * sizeof(char *));
+	while (len-- - start > 0)
+	{
+		*(str++ + start) = *s;
+	}
+	return (str);
+}
