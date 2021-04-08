@@ -6,7 +6,7 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:10:41 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/06 18:10:42 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/08 17:56:43 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 char *ft_itoa(int n)
 {
-	
+	char *ptr;
+	ptr = (char *) &n;
+	return (ptr);
 }

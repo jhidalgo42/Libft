@@ -25,7 +25,8 @@ SRCS = ft_strchr.c \
 			ft_itoa.c \
 			ft_isprint.c \
 			ft_memset.c \
-			ft_strnstr.c
+			ft_strnstr.c \
+
 OBJS = $(SRCS:.c=.o)
 
 CC = cc
