@@ -54,3 +54,33 @@ int		main(void)
 	*/
 	return (0);	
 }
+///////	MAIN MEMCPY
+// int	main(void)
+// {
+// 	void	*mem;
+
+// 	alarm(5);
+// 	if (!(mem = malloc(sizeof(*mem) * 30)))
+// 		return (0);
+// 	memset(mem, 'j', 30);
+// 	write(1, memcpy(mem, "zyxwvutsrqponmlkjihgfedcba", 14), 30);
+// 	write(1, "\n", 1);
+// 	memset(mem, 'j', 30);
+// 	write(1, ft_memcpy(mem, "zyxwvutsrqponmlkjihgfedcba", 14), 30);
+// 	write(1, "\n", 1);
+// 	write(1, "\n", 1);
+// 	memset(mem, 'j', 30);
+// 	write(1, memcpy(mem, "zyxwvutst", 0), 30);
+// 	write(1, "\n", 1);
+// 	memset(mem, 'j', 30);
+// 	write(1, ft_memcpy(mem, "zyxwvutst", 0), 30);
+// 	write(1, "\n", 1);
+// 	write(1, "\n", 1);
+// 	memset(mem, 'j', 30);
+// 	write(1, memcpy(mem, "zy\0xw\0vu\0\0tsr", 11), 30);
+// 	write(1, "\n", 1);
+// 	memset(mem, 'j', 30);
+// 	write(1, ft_memcpy(mem, "zy\0xw\0vu\0\0tsr", 11), 30);
+// 	write(1, "\n", 1);
+// 	return (0);
+// }

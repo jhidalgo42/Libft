@@ -6,12 +6,13 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:07:28 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/08 18:28:34 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/12 16:37:49 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include "libft.h" 
+#include <string.h>
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
@@ -20,9 +21,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 
 	v_dst = dst;
 	v_src = src;
-	if (dst == src)
-		return (dst);
-	if (n <= 0)
+	if (dst == src || n <= 0)
 		return (dst);
 	if (!src && !dst)
 		return (NULL);
@@ -32,6 +31,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 		{
 			*v_dst++ = *v_src++;
 		}
-		return (v_dst);
+		return (dst);
 	}
 }
+
+
