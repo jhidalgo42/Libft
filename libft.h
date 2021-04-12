@@ -6,7 +6,7 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:13:49 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/12 17:05:53 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/12 19:49:20 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 char	*ft_strchr(const char *s, int c);
-char	ft_strrchr(const char *s, int c);
+char	*ft_strrchr(const char *s, int c);
 char	*ft_strnstr(const char	*big, const char *little, size_t len);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_atoi(const char *nptr);

@@ -6,7 +6,7 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:07:28 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/12 16:37:49 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/12 20:09:03 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,3 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 		return (dst);
 	}
 }
-
-
