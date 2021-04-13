@@ -6,7 +6,7 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:06:16 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/12 20:42:18 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/13 13:34:13 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ char	*ft_strnstr(const char	*big, const char *little, size_t len)
 
 	ptr = (char *)big;
 	i = 0;
-	// if ( !big)
-	// 	return (ptr);
 	if (little[0] == '\0')
 		return (ptr);
 	while (ptr[i] && len-- > 0)

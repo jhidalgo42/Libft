@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   atoi.c                                             :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:00:39 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/07 15:59:32 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/13 14:46:17 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,28 @@
 
 int	ft_atoi(const char *nptr)
 {
-	int	numero;
-	int	negativo;
-	int	i;
+	long	numero;
+	int		negativo;
+	char	*ptr;
 
+	ptr = (char *)nptr;
 	numero = 0;
 	negativo = 1;
-	i = 0;
-	while ((nptr[i] == ' ') || (nptr[i] >= 9 && nptr[i] <= 13))
-		i++;
-	while (nptr[i] == '-' || nptr[i] == '+')
+	while ((*ptr == ' ') || (*ptr >= 9 && *ptr <= 13))
+		ptr++;
+	if (*ptr == '-' || *ptr == '+')
 	{
-		if (nptr[i] == '-')
-		{
+		if (*ptr == '-')
 			negativo = -negativo;
-		}
-		i++;
+		ptr++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
+	while (*ptr >= '0' && *ptr <= '9')
 	{
-		numero = numero * 10 + nptr[i] - 48;
-		i++;
+		numero = numero * 10 + *ptr++ - 48;
+		if ((numero * negativo) > 2147483647)
+			return (-1);
+		else if ((numero * negativo) < -2147483648)
+			return (0);
 	}
-	return (numero * negativo);
+	return ((int)numero * negativo);
 }
