@@ -6,7 +6,7 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:10:23 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/13 15:52:11 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/13 16:08:20 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	i = 0;
 	while (*s1)
 	{
-		*str = *s1;
+		*str++ = *s1++;
 		i++;
 	}
 	while (*s2)
 	{
-		*str = *s2;
+		*str++ = *s2++;
 		i++;
 	}
 	str[1] = 0;

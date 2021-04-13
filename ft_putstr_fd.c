@@ -6,7 +6,7 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:10:31 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/08 16:27:05 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/13 16:14:19 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,12 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	write(fd, s, sizeof(ft_strlen(s) * sizeof(char *)));
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
 }

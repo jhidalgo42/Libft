@@ -6,7 +6,7 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:10:36 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/13 15:50:28 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/13 16:13:43 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	write(fd, s, sizeof(ft_strlen(s) * sizeof(char *)));
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
 	write(fd, "\n", 1);
 }
