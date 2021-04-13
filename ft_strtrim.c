@@ -6,10 +6,10 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:10:16 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/06 18:10:17 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/13 15:42:44 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h" 
 
-char *ft_strtrim(char const *s1, char const *set);
+char	*ft_strtrim(char const *s1, char const *set);

@@ -6,7 +6,7 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:13:49 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/12 19:49:20 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/13 15:46:41 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,17 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(const char *s);
+/*PARTE ADICIONAL*/
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_putstr_fd(char *s, int fd);
 /*
-
-ft_substr
-ft_strjoin
-ft_strtrim
+char	*ft_strtrim(char const *s1, char const *set);
 ft_split
 ft_itoa
 ft_strmapi
-ft_putchar_fd
-ft_putstr_fd
-ft_putendl_fd
 ft_putnbr_fd
 */
 #endif
