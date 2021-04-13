@@ -6,13 +6,13 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:08:49 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/13 15:36:07 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/13 17:51:29 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *str)
+size_t	ft_strlen(char *str)
 {
 	int	i;
 
