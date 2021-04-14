@@ -6,13 +6,11 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:07:36 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/12 17:36:05 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/14 17:23:44 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include "libft.h" 
-#include <string.h>
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {

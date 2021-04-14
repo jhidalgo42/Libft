@@ -6,22 +6,68 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:10:28 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/13 19:51:54 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/14 15:37:28 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+
+static char	**print_array(char **array, char const *s, char c)
+{
+	int		i;
+	int		j;
+	char	*str;
+
+	i = 0;
+	j = 0;
+	str = (char *)s;
+	while (*str != 0)
+	{
+		if (*str == c)
+		{
+			if (j != 0)
+			{	
+				array[i][j] = 0;
+				i++;
+				j = 0;
+			}
+			str++;
+		}
+		else if (*str != c)
+		{
+			array[i][j++] = *str++;
+		}
+	}
+	return (array);
+}
 
 static int	num_words(char const *s, char c)
 {
 	int		i;
-	int		words;
-	char	*str;
-	
-	
-	str = (char)s;
-	while ()
-	
+	int		word;
+	int		newword;
+
+	i = 0;
+	word = 0;
+	newword = 0;
+	if (s[i] != c)
+		newword = -1;
+	while (s[i] != 0)
+	{
+		if (s[i] == c)
+		{
+			if (newword == 0)
+				newword = -1;
+		}
+		else if (s[i] != c && newword != 0)
+		{
+			word++;
+			newword = 0;
+		}
+		i++;
+	}
+	return (word);
 }
 
 static int	maxlen_word(char const *s, char c)
@@ -29,51 +75,112 @@ static int	maxlen_word(char const *s, char c)
 	int		i;
 	int		maxlen;
 	char	*str;
-	
-	str = (char)s;
+
+	str = (char *)s;
 	i = 0;
 	maxlen = 0;
-	while (!s)
+	while (*str)
 	{
-		if (*s == c)
+		if (*str == c)
 		{
 			if (i > maxlen)
 				maxlen = i;
-			else
-				i = 0;
+			i = 0;
 		}
 		else
 			i++;
+		str++;
 	}
-	return (i);
+	return (maxlen);
 }
 
-char		**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	int		i;
-	int		j;
 	char	**array;
+	int		lwords;
+	int		words;
 
 	i = 0;
-	j = 0;
-	array = (char **)malloc(num_words(s, c) * sizeof(char *));
-	while (i > 0)
+	if (!s)
+		return (NULL);
+	words = num_words(s, c);
+	lwords = maxlen_word(s, c);
+	array = (char **)malloc((words + 1) * sizeof(char *));
+	while (i <= words)
 	{
-		array[i] = (char *)malloc(maxlen_word(s, c) * sizeof(char));
-		i--;
+		array[i] = (char *)malloc((lwords + 1) * sizeof(char));
+		ft_bzero(array[i], lwords);
+		i++;
 	}
-	j = 0;
-	while (!s)
-	{
-		if (*s == c && j != 0)
-		{
-			i++;
-			j = 0;
-		}
-		else if (*s == c && j == 0)
-			s++;
-		else
-			array[i][j++] = *s++;
-	}
+	if (!array)
+		return (NULL);
+	array = print_array(array, s, c);
 	return (array);
 }
+
+// int main (void)
+// {
+// 	char *s = "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse";
+// 	char **result = ft_split(s, ' ');
+// 	char *str;
+// 	int i = 0;
+
+// 	printf("\nEX01\n");
+// 	while (*result[i])
+// 	{
+// 		printf("%s\n", result[i]);
+// 		i++;
+// 	}
+// 	i = 0 ;
+// 	free (result);
+// 	printf("\nEX02\n");
+// 	s = "   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ";
+// 	result = ft_split(s, ' ');
+// 	while (*result[i])
+// 	{
+// 		printf("%s\n", result[i]);
+// 		i++;
+// 	}
+// 	i = 0 ;
+// 	printf("\nEX03\n");
+// 	s = "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.";
+// 	result = ft_split(s, 'i');
+// 	while (*result[i])
+// 	{
+// 		printf("%s\n", result[i]);
+// 		i++;
+// 	}
+// 	i = 0 ;
+// 	free (result);
+// 	printf("\nEX04\n");
+// 	s = "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.";
+// 	result = ft_split(s, 'z');
+// 	while (*result[i])
+// 	{
+// 		printf("%s\n", result[i]);
+// 		i++;
+// 	}
+// 	i = 0;
+// 	free (result);
+// 	printf("\nEX05\n");
+// 	str = "      split       this for   me  !       ";
+// 	result = ft_split(str, ' ');
+// 	while (*result[i])
+// 	{
+// 		printf("%s\n", result[i]);
+// 		i++;
+// 	}
+// 	i = 0 ;
+// 	free (result);
+// 	printf("\nEX06\n");
+// 	str = "splote  ||t his|f´or|m-e|||||!|";
+// 	result = ft_split(str, '|');
+// 	while (*result[i])
+// 	{
+// 		printf("%s\n", result[i]);
+// 		i++;
+// 	}
+// 	free (result);
+// 	return (0);
+// }

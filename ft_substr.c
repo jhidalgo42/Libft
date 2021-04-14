@@ -6,7 +6,7 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:10:12 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/13 18:31:35 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/14 17:21:11 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
-	int		i;
+	size_t	i;
 
 	i = 0;
 	if (!s)

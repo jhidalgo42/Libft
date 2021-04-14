@@ -6,31 +6,36 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:10:41 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/13 18:34:19 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/14 14:17:09 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h" 
 
-char	*ft_itoa(int n)
+static int	size_nb (int n)
 {
-	int		tmp;
 	int		i;
-	int		neg;
-	char	*ptr;
 
-	tmp = n;
-	neg = 0;
-	if (tmp < 0)
+	i = 0;
+	while (n / 10 != 0)
 	{
-		neg = 1;
-		tmp *= -1;
-	}
-	while (tmp / 10 > 0)
-	{
-		tmp /= 10;
+		n /= 10;
 		i++;
 	}
+	return (i);
+}
+
+char	*ft_itoa(int n)
+{
+	int				i;
+	int				neg;
+	unsigned int	nb;
+	char			*ptr;
+
+	i = size_nb(n);
+	neg = 0;
+	if (n < 0)
+		neg = 1;
 	ptr = (char *)malloc((i + neg + 1) * sizeof(char));
 	if (!ptr)
 		return (NULL);
@@ -38,11 +43,11 @@ char	*ft_itoa(int n)
 	if (n < 0)
 	{
 		ptr[0] = '-';
-		n *= -1;
+		nb = (unsigned int)n * -1;
 	}
 	while (i-- > 0)
 	{
-		*ptr = n % (10 * i);
+		*ptr = nb % (10 * i);
 	}
 	return (ptr);
 }

@@ -6,11 +6,10 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:07:20 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/12 21:27:57 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/14 17:22:57 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include "libft.h" 
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)

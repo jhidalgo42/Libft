@@ -6,7 +6,7 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:08:49 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/13 17:51:29 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/14 16:59:51 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 size_t	ft_strlen(char *str)
 {
-	int	i;
+	size_t	i;
+	char	*sr;
 
+	sr = str;
 	i = 0;
-	while (*str++)
+	while (*sr++)
 	{
 		i++;
 	}
