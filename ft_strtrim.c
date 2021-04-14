@@ -6,25 +6,11 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:10:16 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/14 17:17:25 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/14 18:42:07 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h" 
-// #include <stdio.h>
-
-
-// size_t	ft_strlen(char *str)
-// {
-// 	size_t	i;
-
-// 	i = 0;
-// 	while (*str++)
-// 	{
-// 		i++;
-// 	}
-// 	return (i);
-// }
 
 static int	check_set(char const *s1, char const *set, int j)
 {
@@ -68,10 +54,9 @@ static int	end_str(char const *s1, char const *set)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*str;
-	int		i;
-	int		start;
-	int		end;
+	char			*str;
+	unsigned int	start;
+	unsigned int	end;
 
 	if (!s1)
 		return (NULL);
@@ -81,24 +66,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	end = end_str(s1, set);
 	if (end <= start)
 		end = start;
-	str = (char *)malloc((end - start +1) * sizeof(char));
-	if (!str)
-		return (NULL);
-	i = 0;
-	while (start + i <= end)
-	{
-		str[i] = s1[start + i];
-		i++;
-	}
-	str[i] = '\0';
+	str = ft_substr(s1, start, (end - start) + 1);
 	return (str);
 }
-
-// int	main (void)
-// {
-// 	const char	*s1 = "   \t   \n\n\nHello \t  Please\n Trim e !\n   \n t\t\n  ";
-// 	const char	*set = " \n\t";
-
-// 	printf("%s", ft_strtrim(s1, set));
-// 	return (0);
-// }

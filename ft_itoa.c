@@ -6,48 +6,55 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:10:41 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/14 14:17:09 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/14 18:21:52 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" 
+#include "libft.h"
 
-static int	size_nb (int n)
+static int	size_nb (long n)
 {
 	int		i;
+	int		neg;
 
 	i = 0;
-	while (n / 10 != 0)
+	neg = 0;
+	if (n < 0)
+	{
+		neg = 1;
+		n = -n;
+	}
+	if (n == 0)
+		i++;
+	while (n > 0)
 	{
 		n /= 10;
 		i++;
 	}
-	return (i);
+	return (i + neg);
 }
 
 char	*ft_itoa(int n)
 {
 	int				i;
-	int				neg;
-	unsigned int	nb;
+	long			nb;
 	char			*ptr;
 
+	nb = (long) n;
 	i = size_nb(n);
-	neg = 0;
-	if (n < 0)
-		neg = 1;
-	ptr = (char *)malloc((i + neg + 1) * sizeof(char));
+	ptr = (char *)malloc((i + 1) * sizeof(char));
 	if (!ptr)
 		return (NULL);
-	ptr[i + neg] = 0;
+	ptr[i--] = '\0';
+	if (nb < 0)
+		nb = nb * -1;
+	while (i >= 0)
+	{
+		ptr[i] = (nb % 10) + '0';
+		nb = nb / 10;
+		i--;
+	}
 	if (n < 0)
-	{
 		ptr[0] = '-';
-		nb = (unsigned int)n * -1;
-	}
-	while (i-- > 0)
-	{
-		*ptr = nb % (10 * i);
-	}
 	return (ptr);
 }
