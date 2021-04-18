@@ -6,7 +6,7 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:10:28 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/14 18:29:25 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/18 20:59:06 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,117 +70,70 @@ static int	num_words(char const *s, char c)
 	return (word);
 }
 
-static int	maxlen_word(char const *s, char c)
+static int	len_word(char const *s, char c, int i)
 {
-	int		i;
 	int		maxlen;
-	char	*str;
 
-	str = (char *)s;
-	i = 0;
 	maxlen = 0;
-	while (*str)
+	while (s[i] != 0 && s[i] != c)
 	{
-		if (*str == c)
-		{
-			if (i > maxlen)
-				maxlen = i;
-			i = 0;
-		}
-		else
-			i++;
-		str++;
+		i++;
+		maxlen++;
 	}
 	return (maxlen);
 }
 
-char	**ft_split(char const *s, char c)
+static int	n_separator(char const *s, char c, int i)
 {
-	int		i;
-	char	**array;
-	int		lwords;
-	int		words;
+	int	j;
+
+	j = 0;
+	if (s[i] != c)
+		return (0);
+	else
+	{
+		while (s[i + j] == c && s[i + j] != 0)
+		{
+			j++;
+		}
+	}
+	return (j);
+}
+
+static char	**create_array(char const *s, char c, char **array, int words)
+{
+	int	i;
+	int	j;
+	int	lwords;
 
 	i = 0;
-	if (!s)
-		return (NULL);
-	words = num_words(s, c);
-	lwords = maxlen_word(s, c);
-	array = (char **)malloc((words + 1) * sizeof(char *));
-	while (i <= words)
+	j = 0;
+	lwords = 0;
+	while (i < words)
 	{
-		array[i] = (char *)malloc((lwords + 1) * sizeof(char));
-		ft_bzero(array[i], lwords);
+		j += n_separator(s, c, j);
+		lwords = len_word(s, c, j);
+		j += lwords;
+		array[i] = malloc((lwords + 1) * sizeof(char));
+		ft_bzero(array[i], lwords + 1);
 		i++;
 	}
+	array[i] = NULL;
 	if (!array)
 		return (NULL);
-	array = print_array(array, s, c);
 	return (array);
 }
 
-// int main (void)
-// {
-// 	char *s = "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse";
-// 	char **result = ft_split(s, ' ');
-// 	char *str;
-// 	int i = 0;
+char	**ft_split(char const *s, char c)
+{
+	char	**array;
+	int		words;
 
-// 	printf("\nEX01\n");
-// 	while (*result[i])
-// 	{
-// 		printf("%s\n", result[i]);
-// 		i++;
-// 	}
-// 	i = 0 ;
-// 	free (result);
-// 	printf("\nEX02\n");
-// 	s = "   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ";
-// 	result = ft_split(s, ' ');
-// 	while (*result[i])
-// 	{
-// 		printf("%s\n", result[i]);
-// 		i++;
-// 	}
-// 	i = 0 ;
-// 	printf("\nEX03\n");
-// 	s = "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.";
-// 	result = ft_split(s, 'i');
-// 	while (*result[i])
-// 	{
-// 		printf("%s\n", result[i]);
-// 		i++;
-// 	}
-// 	i = 0 ;
-// 	free (result);
-// 	printf("\nEX04\n");
-// 	s = "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.";
-// 	result = ft_split(s, 'z');
-// 	while (*result[i])
-// 	{
-// 		printf("%s\n", result[i]);
-// 		i++;
-// 	}
-// 	i = 0;
-// 	free (result);
-// 	printf("\nEX05\n");
-// 	str = "      split       this for   me  !       ";
-// 	result = ft_split(str, ' ');
-// 	while (*result[i])
-// 	{
-// 		printf("%s\n", result[i]);
-// 		i++;
-// 	}
-// 	i = 0 ;
-// 	free (result);
-// 	printf("\nEX06\n");
-// 	str = "splote  ||t his|f´or|m-e|||||!|";
-// 	result = ft_split(str, '|');
-// 	while (*result[i])
-// 	{
-// 		printf("%s\n", result[i]);
-// 		i++;
-// 	}
-// 	free (result);
-// 	return (0);
-// }
+	if (!s)
+		return (NULL);
+	words = num_words(s, c);
+	array = malloc((words + 1) * sizeof(char *));
+	array = create_array(s, c, array, words);
+	array = print_array(array, s, c);
+	return (array);
+}

@@ -8,7 +8,7 @@
 int		main(void)
 {
 	
-	printf("%c", isascii (0));
+	printf("%lu", sizeof(unsigned long));
 	
 	// void	*s1;
 	// void	*s2;

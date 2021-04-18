@@ -6,7 +6,7 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:07:59 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/12 21:54:02 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/18 17:33:17 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strchr(const char *s, int c)
 	char	*str;
 
 	str = (char *)s;
-	while (*str != c)
+	while (*str != c % 256)
 	{
 		if (*str == '\0')
 			return (NULL);

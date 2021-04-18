@@ -6,20 +6,20 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:08:49 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/14 16:59:51 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/18 18:41:06 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
 	size_t	i;
 	char	*sr;
 
-	sr = str;
+	sr = (char *)str;
 	i = 0;
-	while (*sr++)
+	while (*sr++ && i < 4294967295)
 	{
 		i++;
 	}

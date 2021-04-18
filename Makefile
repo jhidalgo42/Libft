@@ -35,11 +35,11 @@ SRCS = ft_strchr.c \
 			ft_strtrim.c \
 			ft_split.c \
 			ft_strtrim.c \
-			ft_strmapi.c
+			ft_strmapi.c 
 
-SRCB = ft_lstnew.cc \
+SRCB = ft_lstnew.c \
 			ft_lstadd_front.c \
-			ft_lstsize \
+			ft_lstsize.c \
 			ft_lstlast.c \
 			ft_lstadd_back.c \
 			ft_lstdelone.c \
@@ -64,15 +64,17 @@ $(NAME): 	$(OBJS)
 
 all: $(NAME)
 
-bonus: 
+bonus: all $(OBJB)
+			ar rc  $(NAME) $(OBJB)
+			ranlib $(NAME)
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(OBJB)
 
 fclean:		clean
 
 	$(RM) $(NAME)
 
-re: fclean all
+re: fclean all bonus
 
-.PHONY:		clean fclean all re 
+.PHONY:		bonus all clean fclean  re 
