@@ -37,7 +37,19 @@ SRCS = ft_strchr.c \
 			ft_strtrim.c \
 			ft_strmapi.c
 
+SRCB = ft_lstnew.cc \
+			ft_lstadd_front.c \
+			ft_lstsize \
+			ft_lstlast.c \
+			ft_lstadd_back.c \
+			ft_lstdelone.c \
+			ft_lstclear.c \
+			ft_lstiter.c \
+			ft_lstmap.c \
+			
+
 OBJS = $(SRCS:.c=.o)
+OBJB = $(SRCB:.c=.o)
 
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
@@ -51,6 +63,8 @@ $(NAME): 	$(OBJS)
 			ranlib $(NAME)
 
 all: $(NAME)
+
+bonus: 
 
 clean:
 	$(RM) $(OBJS)
