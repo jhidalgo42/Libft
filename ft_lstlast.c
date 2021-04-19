@@ -6,7 +6,7 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 16:27:20 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/18 16:38:05 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/19 14:38:21 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_list	*ft_lstlast(t_list *lst)
 	if (!lst)
 		return (NULL);
 	tmp = lst;
+	tmp->next = lst->next;
 	while (tmp->next)
 	{
 		tmp = tmp->next;

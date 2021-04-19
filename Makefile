@@ -35,7 +35,7 @@ SRCS = ft_strchr.c \
 			ft_strtrim.c \
 			ft_split.c \
 			ft_strtrim.c \
-			ft_strmapi.c 
+			ft_strmapi.c \
 
 SRCB = ft_lstnew.c \
 			ft_lstadd_front.c \
@@ -64,7 +64,7 @@ $(NAME): 	$(OBJS)
 
 all: $(NAME)
 
-bonus: all $(OBJB)
+bonus: $(NAME) $(OBJB)
 			ar rc  $(NAME) $(OBJB)
 			ranlib $(NAME)
 

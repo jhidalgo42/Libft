@@ -6,7 +6,7 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:10:16 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/14 18:42:07 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/19 13:27:35 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static int	end_str(char const *s1, char const *set)
 	int	j;
 
 	j = ft_strlen((char *)s1) - 1;
-	while (check_set(s1, set, j))
+	while (check_set(s1, set, j) && j > 0)
 	{
 		j--;
 	}

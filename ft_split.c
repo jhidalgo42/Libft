@@ -6,134 +6,94 @@
 /*   By: jhidalgo <jhidalgo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:10:28 by jhidalgo          #+#    #+#             */
-/*   Updated: 2021/04/18 20:59:06 by jhidalgo         ###   ########.fr       */
+/*   Updated: 2021/04/19 14:35:21 by jhidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-static char	**print_array(char **array, char const *s, char c)
+static	char	*malloc_free(char **str)
 {
-	int		i;
-	int		j;
-	char	*str;
+	int	i;
 
 	i = 0;
-	j = 0;
-	str = (char *)s;
-	while (*str != 0)
+	while (str[i])
 	{
-		if (*str == c)
-		{
-			if (j != 0)
-			{	
-				array[i][j] = 0;
-				i++;
-				j = 0;
-			}
-			str++;
-		}
-		else if (*str != c)
-		{
-			array[i][j++] = *str++;
-		}
-	}
-	return (array);
-}
-
-static int	num_words(char const *s, char c)
-{
-	int		i;
-	int		word;
-	int		newword;
-
-	i = 0;
-	word = 0;
-	newword = 0;
-	if (s[i] != c)
-		newword = -1;
-	while (s[i] != 0)
-	{
-		if (s[i] == c)
-		{
-			if (newword == 0)
-				newword = -1;
-		}
-		else if (s[i] != c && newword != 0)
-		{
-			word++;
-			newword = 0;
-		}
+		free(str[i]);
 		i++;
 	}
-	return (word);
+	free(str);
+	return (NULL);
 }
 
-static int	len_word(char const *s, char c, int i)
+static	int	count_words(const char *str, char c)
 {
-	int		maxlen;
-
-	maxlen = 0;
-	while (s[i] != 0 && s[i] != c)
-	{
-		i++;
-		maxlen++;
-	}
-	return (maxlen);
-}
-
-static int	n_separator(char const *s, char c, int i)
-{
+	int	i;
 	int	j;
 
+	i = 0;
 	j = 0;
-	if (s[i] != c)
-		return (0);
-	else
+	while (str[i])
 	{
-		while (s[i + j] == c && s[i + j] != 0)
+		while (str[i] && str[i] == c)
+			i++;
+		if (str[i] && str[i] != c)
 		{
+			i++;
 			j++;
+			while (str[i] && str[i] != c)
+				i++;
 		}
 	}
 	return (j);
 }
 
-static char	**create_array(char const *s, char c, char **array, int words)
+static	char	*malloc_word(const char *str, char c)
 {
-	int	i;
-	int	j;
-	int	lwords;
+	char	*word;
+	int		i;
 
 	i = 0;
-	j = 0;
-	lwords = 0;
-	while (i < words)
+	while (str[i] && str[i] != c)
+		i++;
+	word = malloc(sizeof(char) * (i + 1));
+	if (!word)
+		return (NULL);
+	i = 0;
+	while (str[i] && str[i] != c)
 	{
-		j += n_separator(s, c, j);
-		lwords = len_word(s, c, j);
-		j += lwords;
-		array[i] = malloc((lwords + 1) * sizeof(char));
-		ft_bzero(array[i], lwords + 1);
+		word[i] = str[i];
 		i++;
 	}
-	array[i] = NULL;
-	if (!array)
-		return (NULL);
-	return (array);
+	word[i] = '\0';
+	return (word);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**array;
-	int		words;
+	int		i;
+	char	**tab;
 
+	i = 0;
 	if (!s)
 		return (NULL);
-	words = num_words(s, c);
-	array = malloc((words + 1) * sizeof(char *));
-	array = create_array(s, c, array, words);
-	array = print_array(array, s, c);
-	return (array);
+	tab = malloc(sizeof(char *) * (count_words(s, c) + 1));
+	if (!tab)
+		return (NULL);
+	while (*s)
+	{
+		while (*s && *s == c)
+			s++;
+		if (*s && *s != c)
+		{
+			tab[i] = malloc_word(s, c);
+			if (!(tab[i]))
+				return ((char **)malloc_free(tab));
+			while (*s && *s != c)
+				s++;
+			i++;
+		}
+	}
+	tab[i] = NULL;
+	return (tab);
 }
